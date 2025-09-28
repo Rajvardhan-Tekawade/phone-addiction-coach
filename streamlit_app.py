@@ -214,6 +214,11 @@ def prediction_page(models, scaler, label_encoders):
     
     col1, col2 = st.columns([2, 1])
     
+    # Model selection - Move this BEFORE the form
+    model_choice = st.sidebar.selectbox("Select Model for Prediction", 
+                                       list(models.keys()),
+                                       index=0)
+    
     with col1:
         st.markdown("### Input Features")
         
@@ -385,11 +390,6 @@ def prediction_page(models, scaler, label_encoders):
                 else:
                     # Use standardization if no scaler available
                     features_scaled = features  # Keep original for now
-                
-                # Model selection
-                model_choice = st.sidebar.selectbox("Select Model for Prediction", 
-                                                   list(models.keys()),
-                                                   index=0)
                 
                 selected_model = models[model_choice]
                 
