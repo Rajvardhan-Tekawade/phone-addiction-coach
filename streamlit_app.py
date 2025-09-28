@@ -64,7 +64,7 @@ def load_algorithm_comparison():
         df = pd.read_excel('model_comparison_results.xlsx', sheet_name='Model Comparison')
         return df
     except Exception as e:
-        st.warning(f"Could not load Excel file: {e}")
+        #st.warning(f"Could not load Excel file: {e}")
         # Fallback data if Excel file not found
         return pd.DataFrame({
             'Algorithm': ['Decision Tree', 'Logistic Regression', 'K-Nearest Neighbors', 
